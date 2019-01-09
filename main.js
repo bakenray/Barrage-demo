@@ -8,6 +8,15 @@ $(document).ready(function(){
         tanslateTo()
         removeWors()
     })
+    $('.container').keydown(function(event){
+        if(event.keyCode == 13){
+            setWords()
+            render()
+            tanslateTo()
+            removeWors()
+        }
+    })
+
     $('.clear-word').on('click',function(){
         clearWords()
     })
@@ -19,11 +28,10 @@ $(document).ready(function(){
 
     function clearWords(){
         $('.pop-words-window').empty()
-        arr.empty()
+        arr= []
     }
-
     function render(){
-      var speed = 10
+      var speed = 15
       var div = document.createElement('div')
 
       var randomTop =  Math.floor( Math.random()*100) 
@@ -49,12 +57,12 @@ $(document).ready(function(){
       }
     }
     function tanslateTo(){
-
         setTimeout(function(){
           $('.pop-words-window>div').css({
             transform: `translateX(${-translateRight}px)`,
           })
         },5)
+        $('.input-box>input').val('').attr('placeholder',' ').focus()
       }
       function removeWors(){
           setTimeout(function(){

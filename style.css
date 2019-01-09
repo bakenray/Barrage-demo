@@ -5,8 +5,8 @@
   height:100%;
 }
 .pop-words-window{
-  width:95%;
-  margin:5vh auto;
+  width:96%;
+  margin:2vh auto;
   height:70vh;
   border:1px solid #ccc;
   position:relative;
@@ -17,7 +17,7 @@
   position: absolute;
 }
 .events{
-  width:95%;
+  width:96%;
   height:20vh;
   margin:auto;
   text-align:center;
