@@ -54,15 +54,16 @@ $(document).ready(function(){
           })
         var divWord = $(div).text(arr[i])
         $('.pop-words-window').append(divWord)
+        $('.input-box>input').val('').attr('placeholder',' ').focus()
       }
     }
     function tanslateTo(){
         setTimeout(function(){
+
           $('.pop-words-window>div').css({
             transform: `translateX(${-translateRight}px)`,
           })
         },5)
-        $('.input-box>input').val('').attr('placeholder',' ').focus()
       }
       function removeWors(){
           setTimeout(function(){
