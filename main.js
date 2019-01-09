@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    var arr=[]
+    var arr=['这个弹幕做得太棒了']
     var translateRight = $('.pop-words-window')[0].offsetWidth
+    init()
 
     $('.send-word').on('click',function(){
         setWords()
@@ -20,7 +21,10 @@ $(document).ready(function(){
     $('.clear-word').on('click',function(){
         clearWords()
     })
-
+    function init(){
+        render()
+        tanslateTo()
+    }
     function setWords(){
         var inputWord = $('.input-box>input').val()
         arr.push(inputWord)
@@ -41,29 +45,35 @@ $(document).ready(function(){
       var randomIndex = Math.floor(Math.random()*10)
       if(randomIndex>=5){randomIndex = 5}  
       var randomColor = color[randomIndex]
+      var $div =$(div)
 
       for(let i=0;i<arr.length;i++){
-          $(div).css({
-            top:`${randomTop}%`,
-            color:`${randomColor}`,
-            'font-size':'16px',
-            'font-weight':'bold',
-            right: '10px',
-            transition: `all ${speed}s linear`,
-            transform: `translateX(0)`
-          })
-        var divWord = $(div).text(arr[i])
-        $('.pop-words-window').append(divWord)
+
+          function x(){
+            $div.css({
+                top:`${randomTop}%`,
+                color:`${randomColor}`,
+                'font-size':'16px',
+                'font-weight':'bold',
+                right: '10px',
+                transition: `all ${speed}s linear`,
+                transform: `translateX(0)`
+              })
+
+            $('.pop-words-window').append( $div.text(arr[i]))
+          }
+          x()
+
         $('.input-box>input').val('').attr('placeholder',' ').focus()
       }
     }
+
     function tanslateTo(){
         setTimeout(function(){
-
           $('.pop-words-window>div').css({
             transform: `translateX(${-translateRight}px)`,
           })
-        },5)
+        },0)
       }
       function removeWors(){
           setTimeout(function(){
